@@ -11,4 +11,4 @@ WORKDIR /app
 ADD . /app
 
 # Run when the container launches
-CMD ["java", "-cp", ".", "target/myartifact-0.0.1.jar", "mygroup.myartifact.App"]
+CMD ["java", "-cp", ".", "myartifact-0.0.1.jar", "target/mygroup.myartifact.App"]

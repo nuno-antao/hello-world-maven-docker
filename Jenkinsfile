@@ -14,7 +14,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t nunojca/myrepo:latest .'
+        sh 'docker build -t nunojca/hello-world-maven:latest .'
       }
     }
     stage('Docker Push') {
@@ -22,7 +22,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push nunojca/myrepo:latest'
+          sh 'docker push nunojca/hello-world-maven:latest'
         }
       }
     }
